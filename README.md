@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Task Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This is a Task Management Dashboard built using React, Redux, and TailwindCSS. The app allows users to mock login, and manage their tasks. It includes features like theme switching (dark/light mode), task creation, updating, deletion, and filtering based on task status and priority.
 
-## Available Scripts
+## How to Run the Project
+"start": "react-scripts start",
 
-In the project directory, you can run:
+### Prerequisites
+- Node.js and npm should be installed on your machine. You can download Node.js from [here](https://nodejs.org/).
 
-### `npm start`
+### Installation Steps
+1. Clone the repository to your local machine:
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+src/
+├── components/
+│   ├── Login.tsx
+│   ├── Dashboard.tsx
+│   ├── TaskList.tsx
+│   └── TaskForm.tsx
+├── redux/
+│   ├── authSlice.ts
+│   └── taskSlice.ts
+├── App.tsx
+├── index.tsx
+└── tailwind.config.js
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+npm install
+npm start
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Dependencies
+React: The front-end framework used for building the UI.
+Redux Toolkit: For state management.
+TailwindCSS: For styling the components with utility-first CSS.
+Axios: For making API requests (or handling data persistence via local storage).
+UUID: For generating unique task IDs.
 
-### `npm run build`
+Application Architecture
+The application is structured as follows:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend
+React: The main UI components are created using React.
+Redux: State management is handled using Redux Toolkit.
+authSlice: Manages authentication state, including token storage and theme switching.
+taskSlice: Manages the state of tasks, including CRUD operations, filtering, and persistence.
+TailwindCSS: Used for styling the UI with a responsive design approach.
+Task Management
+Tasks are stored in Redux state and are persisted using localStorage to retain data across page reloads. The taskSlice uses a mock API (or local storage) for task CRUD operations.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Authentication
+JWT-based authentication is simulated. Upon login, a token is stored in Redux state and localStorage. The login/logout functionality is managed in the authSlice
